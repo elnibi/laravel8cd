@@ -17,8 +17,5 @@ RUN php artisan migrate
 RUN chmod -R 777 storage
 RUN a2enmod rewrite
 
-RUN adduser --disabled-password --gecos '' docker
-RUN adduser docker sudo
-RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
-USER docker
-RUN sudo service apache2 restart
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+RUN service apache2 restart
