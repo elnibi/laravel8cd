@@ -18,4 +18,4 @@ RUN chmod -R 777 storage
 RUN a2enmod rewrite
 
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
-RUN /etc/init.d/apache2 reload
+RUN service apache2 start
